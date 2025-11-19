@@ -1,6 +1,7 @@
 import { VscClose } from 'react-icons/vsc';
 import { Rnd } from 'react-rnd';
 import { lazy, Suspense } from 'react';
+import typeManager from typeManager;
 
 const appsConfig = {
     'Test': lazy(() => import('./Apps/Test')),
@@ -51,7 +52,15 @@ function AppWindow({ appName, onClose, onFocus, appInFolder  }) {
                 <div className="flex-1 p-4 overflow-auto">
                     {AppComponent ? (
                         <Suspense fallback={<div>Chargement...</div>}>
-                            <AppComponent />
+                            <AppComponent />  
+                            
+                            {/* 
+                            foreach
+                            <typeManager 
+                                appInFolder= {appInFolder}
+                            />
+                            */}
+
                         </Suspense>
                     ) : (
                         <div>Application non trouvée</div>
